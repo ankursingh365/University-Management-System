@@ -140,6 +140,7 @@ class AddStudent implements ActionListener{
         t11=new JTextField();
         t11.setBounds(200,400,150,30);
         t11.setText("5000"+first);
+//        t11.setText("5000");
         id15.add(t11);
 
 

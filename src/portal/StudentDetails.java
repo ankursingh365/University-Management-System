@@ -114,7 +114,7 @@ public class StudentDetails extends JFrame implements ActionListener{
             new AddStudent().f.setVisible(true);
             this.setVisible(false);
         }else if(ae.getSource() == b3){
-            //new UpdateStudent().setVisible(true);
+            new UpdateStudent().f.setVisible(true);
             this.setVisible(false);
         }
     }

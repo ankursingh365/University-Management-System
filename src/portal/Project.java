@@ -325,22 +325,22 @@ public class Project extends JFrame implements ActionListener{
             new TeacherDetails().setVisible(true);
 
         }
-//        else if(msg.equals("Update Students")){
-//            new UpdateStudent().f.setVisible(true);
-//
-//        }
-//        else if(msg.equals("Update Teachers")){
-//            new UpdateTeacher().f.setVisible(true);
-//
-//        }
-//        else if(msg.equals("Fee Structure")){
-//            new FeeStructure().setVisible(true);
-//
-//        }
-//        else if(msg.equals("Student Fee Form")){
-//            new StudentFeeForm().setVisible(true);
-//
-//        }
+        else if(msg.equals("Update Students")){
+            new UpdateStudent().f.setVisible(true);
+
+        }
+        else if(msg.equals("Update Teachers")){
+            new UpdateTeacher().f.setVisible(true);
+
+        }
+        else if(msg.equals("Fee Structure")){
+            new FeeStructure().setVisible(true);
+
+        }
+        else if(msg.equals("Student Fee Form")){
+            new StudentFeeForm().setVisible(true);
+
+        }
         else if(msg.equals("Notepad")){
             try{
                 Runtime.getRuntime().exec("notepad.exe");
@@ -352,14 +352,14 @@ public class Project extends JFrame implements ActionListener{
         }else if(msg.equals("Web Browser")){
 
             try{
-                Runtime.getRuntime().exec("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
+                Runtime.getRuntime().exec("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
             }catch(Exception e){ }
         }else if(msg.equals("Exit")){
             System.exit(0);
         }
-//        else if(msg.equals("About Us")){
-//            new AboutUs().setVisible(true);
-//        }
+        else if(msg.equals("About Us")){
+            new AboutUs().setVisible(true);
+        }
         else if(msg.equals("Student Attendance")){
             new StudentAttendance().setVisible(true);
         }else if(msg.equals("Teacher Attendance")){
@@ -369,11 +369,11 @@ public class Project extends JFrame implements ActionListener{
         }else if(msg.equals("Teacher Attendance Detail")){
             new TeacherAttendanceDetail().setVisible(true);
         }
-//        else if(msg.equals("Examination Details")){
-//            new ExaminationDetails().setVisible(true);
-//        }else if(msg.equals("Enter Marks")){
-//            new EnterMarks().setVisible(true);
-//        }
+        else if(msg.equals("Examination Details")){
+            new ExaminationDetails().setVisible(true);
+        }else if(msg.equals("Enter Marks")){
+            new EnterMarks().setVisible(true);
+        }
     }
     public static void main(String[] args){
         new Project().setVisible(true);
