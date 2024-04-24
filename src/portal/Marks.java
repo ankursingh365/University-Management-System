@@ -25,7 +25,7 @@ public class Marks extends JFrame{
 
         add(jsp,"Center");
 
-        setLocation(450,200);
+        setLocation(250,50);
         mark(str);
     }
 
@@ -35,7 +35,7 @@ public class Marks extends JFrame{
 
             t1.setText("\tResult of Examination\n\nSubject\n");
 
-            ResultSet rs1 = c.s.executeQuery("select * from subject where rollno="+s);
+            ResultSet rs1 = c.s.executeQuery("select * from subject where rollno ='"+s+"'");
 
             if(rs1.next()){
                 t1.append("\n\t"+rs1.getString("subject1"));
@@ -47,7 +47,7 @@ public class Marks extends JFrame{
                 t1.append("\n");
             }
 
-            ResultSet rs2 = c.s.executeQuery("select * from marks where rollno="+s);
+            ResultSet rs2 = c.s.executeQuery("select * from marks where rollno= '"+s+"'");
 
             if(rs2.next()){
                 t1.append("\nMarks\n\n\t"+rs2.getString("marks1"));

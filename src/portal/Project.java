@@ -179,37 +179,37 @@ public class Project extends JFrame implements ActionListener{
 
 
 
-        JMenu fee = new JMenu("Fee Details");
-        JMenuItem s1 = new JMenuItem("Fee Structure");
-        JMenuItem s2 = new JMenuItem("Student Fee Form");
-        fee.setForeground(Color.BLUE);
-
-        s1.setFont(new Font("monospaced",Font.BOLD,16));
-        ImageIcon icon14 = new ImageIcon(ClassLoader.getSystemResource("portal/icons/icon7.png"));
-        Image image15 = icon14.getImage().getScaledInstance(20, 20,Image.SCALE_DEFAULT);
-        s1.setIcon(new ImageIcon(image15));
-        s1.setMnemonic('G');
-        s1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, ActionEvent.CTRL_MASK));
-        s1.setBackground(Color.WHITE);
-
-        s1.addActionListener(this);
-
-        s2.setFont(new Font("monospaced",Font.BOLD,16));
-        ImageIcon icon16 = new ImageIcon(ClassLoader.getSystemResource("portal/icons/icon8.png"));
-        Image image17 = icon16.getImage().getScaledInstance(20, 20,Image.SCALE_DEFAULT);
-        s2.setIcon(new ImageIcon(image17));
-        s2.setMnemonic('H');
-        s2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, ActionEvent.CTRL_MASK));
-        s2.setBackground(Color.WHITE);
-
-        s2.addActionListener(this);
+//        JMenu fee = new JMenu("Fee Details");
+//        JMenuItem s1 = new JMenuItem("Fee Structure");
+//        JMenuItem s2 = new JMenuItem("Student Fee Form");
+//        fee.setForeground(Color.BLUE);
+//
+//        s1.setFont(new Font("monospaced",Font.BOLD,16));
+//        ImageIcon icon14 = new ImageIcon(ClassLoader.getSystemResource("portal/icons/icon7.png"));
+//        Image image15 = icon14.getImage().getScaledInstance(20, 20,Image.SCALE_DEFAULT);
+//        s1.setIcon(new ImageIcon(image15));
+//        s1.setMnemonic('G');
+//        s1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, ActionEvent.CTRL_MASK));
+//        s1.setBackground(Color.WHITE);
+//
+//        s1.addActionListener(this);
+//
+//        s2.setFont(new Font("monospaced",Font.BOLD,16));
+//        ImageIcon icon16 = new ImageIcon(ClassLoader.getSystemResource("portal/icons/icon8.png"));
+//        Image image17 = icon16.getImage().getScaledInstance(20, 20,Image.SCALE_DEFAULT);
+//        s2.setIcon(new ImageIcon(image17));
+//        s2.setMnemonic('H');
+//        s2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, ActionEvent.CTRL_MASK));
+//        s2.setBackground(Color.WHITE);
+//
+//        s2.addActionListener(this);
 
 
         JMenu utility = new JMenu("Utility");
         JMenuItem ut1 = new JMenuItem("Notepad");
         JMenuItem ut2 = new JMenuItem("Calculator");
         JMenuItem ut3 = new JMenuItem("Web Browser");
-        utility.setForeground(Color.RED);
+        utility.setForeground(Color.BLUE);
 
 
         ut1.setFont(new Font("monospaced",Font.BOLD,16));
@@ -245,7 +245,7 @@ public class Project extends JFrame implements ActionListener{
 
         JMenu about = new JMenu("About");
         JMenuItem aboutus = new JMenuItem("About Us");
-        about.setForeground(Color.BLUE);
+        about.setForeground(Color.RED);
 
         aboutus.setFont(new Font("monospaced",Font.BOLD,16));
         ImageIcon icon21 = new ImageIcon(ClassLoader.getSystemResource("portal/icons/icon13.jpg"));
@@ -259,7 +259,7 @@ public class Project extends JFrame implements ActionListener{
 
         JMenu exit = new JMenu("Exit");
         JMenuItem ex = new JMenuItem("Exit");
-        exit.setForeground(Color.RED);
+        exit.setForeground(Color.BLUE);
 
 
         ex.setFont(new Font("monospaced",Font.BOLD,16));
@@ -283,8 +283,8 @@ public class Project extends JFrame implements ActionListener{
         report.add(r1);
         report.add(r2);
 
-        fee.add(s1);
-        fee.add(s2);
+//        fee.add(s1);
+//        fee.add(s2);
 
         utility.add(ut1);
         utility.add(ut2);
@@ -299,7 +299,7 @@ public class Project extends JFrame implements ActionListener{
         mb.add(attendance_detail);
         mb.add(exam);
         mb.add(report);
-        mb.add(fee);
+//        mb.add(fee);
         mb.add(utility);
         mb.add(about);
         mb.add(exit);
@@ -333,14 +333,14 @@ public class Project extends JFrame implements ActionListener{
             new UpdateTeacher().f.setVisible(true);
 
         }
-        else if(msg.equals("Fee Structure")){
-            new FeeStructure().setVisible(true);
-
-        }
-        else if(msg.equals("Student Fee Form")){
-            new StudentFeeForm().setVisible(true);
-
-        }
+//        else if(msg.equals("Fee Structure")){
+//            new FeeStructure().setVisible(true);
+//
+//        }
+//        else if(msg.equals("Student Fee Form")){
+//            new StudentFeeForm().setVisible(true);
+//
+//        }
         else if(msg.equals("Notepad")){
             try{
                 Runtime.getRuntime().exec("notepad.exe");

@@ -10,17 +10,32 @@ public class StudentAttendance extends JFrame implements ActionListener{
     JLabel l1,l2,l3,l4,l5,l6,l7;
     JTextField t1,t2,t3,t4,t5,t6,t7;
     JButton b1,b2;
-    Choice c2,fh,sh;
+    Choice c2,fh,sh,tc,sc;
 
     StudentAttendance(){
 
-        setLayout(new GridLayout(4,2,50,50));
+        setLayout(new GridLayout(6,2,20,50));
         c2 = new Choice();
+        tc = new Choice();
+        sc = new Choice();
         try{
             conn c = new conn();
             ResultSet rs = c.s.executeQuery("select * from student");
             while(rs.next()){
                 c2.add(rs.getString("rollno"));
+            }
+            rs = c.s.executeQuery("select * from teacher");
+            while(rs.next()){
+                tc.add(rs.getString("name"));
+            }
+
+            rs = c.s.executeQuery("select * from subject");
+            while(rs.next()){
+                sc.add(rs.getString("subject1"));
+                sc.add(rs.getString("subject2"));
+                sc.add(rs.getString("subject3"));
+                sc.add(rs.getString("subject4"));
+                sc.add(rs.getString("subject5"));
             }
 
 
@@ -28,6 +43,12 @@ public class StudentAttendance extends JFrame implements ActionListener{
 
         add(new JLabel("Select Roll Number"));
         add(c2);
+        add(new JLabel("Select Teacher"));
+        add(tc);
+
+        add(new JLabel("Select Subject"));
+        add(sc);
+
 
         l1 = new JLabel("Class Time");
         fh = new Choice();
@@ -80,7 +101,9 @@ public class StudentAttendance extends JFrame implements ActionListener{
             String s = sh.getSelectedItem();
             String dt = new java.util.Date().toString();
             String id = c2.getSelectedItem();
-            String qry = "insert into attendance_student values(" + id + ",'" + dt + "','" + f + "','" + s + "')";
+            String teacherName = tc.getSelectedItem(); // Get selected teacher name
+            String subject = sc.getSelectedItem();
+            String qry = "insert into attendance_student values(" + id + ",'" + teacherName +"','"+ subject +"','" + dt + "','" + f + "','" + s + "')";
 
             try {
                 conn c1 = new conn();
