@@ -9,6 +9,10 @@ import java.awt.*;
 import java.awt.event.*;
 import com.opencsv.CSVWriter;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class StudentAttendanceDetail extends JFrame implements ActionListener{
 
     JTable j1;
@@ -18,6 +22,7 @@ public class StudentAttendanceDetail extends JFrame implements ActionListener{
     String h[]={"Roll Number","Teacher Name","Subject","Date","Time","Attendance"};
     String d[][]=new String[15][6];
     int i=0,j=0;
+    DefaultTableModel model;
 
     StudentAttendanceDetail(){
         super("View Students Attendance");
@@ -39,15 +44,14 @@ public class StudentAttendanceDetail extends JFrame implements ActionListener{
                 j=0;
             }
 
-            j1=new JTable(d,h);
-            DefaultTableModel model = new DefaultTableModel(d, h) {
+            model = new DefaultTableModel(d, h) {
                 @Override
                 public boolean isCellEditable(int row, int column) {
                     return false;
                 }
             };
-            j1.setModel(model);
 
+            j1 = new JTable(model);
 
         }catch(Exception e){
             e.printStackTrace();
@@ -75,6 +79,7 @@ public class StudentAttendanceDetail extends JFrame implements ActionListener{
 
         JScrollPane s1=new JScrollPane(j1);
         add(s1);
+        filterTextField.addActionListener(this);
 
     }
     public void actionPerformed(ActionEvent ae){
@@ -109,6 +114,21 @@ public class StudentAttendanceDetail extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(this, "Data exported successfully to " + filename);
             } catch(IOException ex) {
                 ex.printStackTrace();
+            }
+        }
+        else if (ae.getSource() == filterTextField) {
+            String filterText = filterTextField.getText().toLowerCase();
+//            int columnIndex = filterComboBox.getSelectedIndex();
+            TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+            j1.setRowSorter(sorter);
+            if (filterText.length() == 0) {
+                sorter.setRowFilter(null);
+            } else {
+                List<RowFilter<Object,Object>> filters = new ArrayList<>();
+                for (int i = 0; i < model.getColumnCount(); i++) {
+                    filters.add(RowFilter.regexFilter("(?i)" + filterText, i));
+                }
+                sorter.setRowFilter(RowFilter.orFilter(filters));
             }
         }
     }

@@ -107,7 +107,7 @@ class UpdateTeacher implements ActionListener{
         t7.setBounds(200,320,150,30);
         f.add(t7);
 
-        id9= new JLabel("Class X(%)");
+        id9= new JLabel("Class XII(%)");
         id9.setBounds(400,320,130,30);
         id9.setFont(new Font("serif",Font.BOLD,20));
         f.add(id9);
@@ -116,7 +116,7 @@ class UpdateTeacher implements ActionListener{
         t8.setBounds(600,320,150,30);
         f.add(t8);
 
-        id10= new JLabel("Class XII(%)");
+        id10= new JLabel("Class X(%)");
         id10.setBounds(50,370,130,30);
         id10.setFont(new Font("serif",Font.BOLD,20));
         f.add(id10);
@@ -145,7 +145,7 @@ class UpdateTeacher implements ActionListener{
         f.add(t11);
 
 
-        lab=new JLabel("Education");
+        lab=new JLabel("Course");
         lab.setBounds(400,420,150,30);
         lab.setFont(new Font("serif",Font.BOLD,20));
         f.add(lab);
@@ -189,7 +189,7 @@ class UpdateTeacher implements ActionListener{
         if(ae.getSource()==b){
             try{
                 conn con = new conn();
-                String str = "update teacher set name='"+t1.getText()+"',father_name='"+t2.getText()+"',age='"+t3.getText()+"', dob='"+t4.getText()+"',address='"+t5.getText()+"',phone='"+t6.getText()+"',email='"+t7.getText()+"',class_x='"+t8.getText()+"',class_xii='"+t9.getText()+"',aadhar='"+t10.getText()+"', emp_id = '"+t11.getText()+"',course='"+t13.getText()+"',dept='"+t14.getText()+"' where emp_id='"+t12.getText()+"'";
+                String str = "update teacher set name='"+t1.getText()+"',father_name='"+t2.getText()+"',age='"+t3.getText()+"', dob='"+t4.getText()+"',address='"+t5.getText()+"',phone='"+t6.getText()+"',email='"+t7.getText()+"',class_xii='"+t8.getText()+"',class_x='"+t9.getText()+"',aadhar='"+t10.getText()+"', dept = '"+t14.getText()+"',emp_id='"+t11.getText()+"',course='"+t13.getText()+"' where emp_id='"+t12.getText()+"'";
                 con.s.executeUpdate(str);
                 JOptionPane.showMessageDialog(null,"successfully updated");
                 f.setVisible(false);
@@ -232,7 +232,7 @@ class UpdateTeacher implements ActionListener{
 
             f.setVisible(true);
             f.setSize(900,650);
-            f.setLocation(450,250);
+            f.setLocation(250,20);
         }
     }
 

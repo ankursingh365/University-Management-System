@@ -189,7 +189,7 @@ class UpdateStudent implements ActionListener{
         if(ae.getSource()==b){
             try{
                 conn con = new conn();
-                String str = "update student set name='"+t1.getText()+"',father_name='"+t2.getText()+"',age='"+t3.getText()+"', dob='"+t4.getText()+"',address='"+t5.getText()+"',phone='"+t6.getText()+"',email='"+t7.getText()+"',class_x='"+t8.getText()+"',class_xii='"+t9.getText()+"',aadhar='"+t10.getText()+"',rollno='"+t12.getText()+"',branch='"+t13.getText()+"',course='"+t14.getText()+"' where rollno='"+t12.getText()+"'";
+                String str = "update student set name='"+t1.getText()+"',father_name='"+t2.getText()+"',age='"+t3.getText()+"', dob='"+t4.getText()+"',address='"+t5.getText()+"',phone='"+t6.getText()+"',email='"+t7.getText()+"',class_x='"+t8.getText()+"',class_xii='"+t9.getText()+"',aadhar='"+t10.getText()+"',course='"+t13.getText()+"',branch='"+t14.getText()+"' where rollno='"+t12.getText()+"'";
                 con.s.executeUpdate(str);
                 JOptionPane.showMessageDialog(null,"successfully updated");
                 f.setVisible(false);
@@ -200,7 +200,7 @@ class UpdateStudent implements ActionListener{
         }
         if(ae.getSource()==b1){
             f.setVisible(false);
-//            new Project().setVisible(true);
+            new Project().setVisible(true);
         }
         if(ae.getSource() == b2){
             try{
@@ -223,9 +223,8 @@ class UpdateStudent implements ActionListener{
                     t9.setText(rs.getString(9));
                     t10.setText(rs.getString(10));
                     t11.setText(rs.getString(11));
-                    t12.setText(rs.getString(12));
-                    t13.setText(rs.getString(13));
-                    t14.setText(rs.getString(14));
+                    t13.setText(rs.getString(12));
+                    t14.setText(rs.getString(13));
                 }
 
 
@@ -233,7 +232,7 @@ class UpdateStudent implements ActionListener{
 
             f.setVisible(true);
             f.setSize(900,650);
-            f.setLocation(450,250);
+            f.setLocation(250,20);
         }
     }
 

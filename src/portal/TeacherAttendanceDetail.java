@@ -18,6 +18,7 @@ public class TeacherAttendanceDetail extends JFrame implements ActionListener{
     String h[]={"Employee id","Date Time","First Half","Second Half"};
     String d[][]=new String[15][4];
     int i=0,j=0;
+    DefaultTableModel model;
 
     TeacherAttendanceDetail(){
         super("View Teachers Attendance");
@@ -37,14 +38,14 @@ public class TeacherAttendanceDetail extends JFrame implements ActionListener{
                 j=0;
             }
 
-            j1=new JTable(d,h);
-            DefaultTableModel model = new DefaultTableModel(d, h) {
+            model = new DefaultTableModel(d, h) {
                 @Override
                 public boolean isCellEditable(int row, int column) {
                     return false;
                 }
             };
-            j1.setModel(model);
+
+            j1 = new JTable(model);
 
         }catch(Exception e){}
 
@@ -71,8 +72,7 @@ public class TeacherAttendanceDetail extends JFrame implements ActionListener{
 
         JScrollPane s1=new JScrollPane(j1);
         add(s1);
-
-
+        filterTextField.addActionListener(this);
     }
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource() == b1){
@@ -105,6 +105,17 @@ public class TeacherAttendanceDetail extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(this, "Data exported successfully to " + filename);
             } catch (IOException ex) {
                 ex.printStackTrace();
+            }
+        }
+        else if (ae.getSource() == filterTextField) {
+            String filterText = filterTextField.getText().toLowerCase();
+            TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+            j1.setRowSorter(sorter);
+            if (filterText.length() == 0) {
+                sorter.setRowFilter(null);
+            } else {
+                RowFilter<DefaultTableModel, Object> rowFilter = RowFilter.regexFilter("(?i)" + filterText);
+                sorter.setRowFilter(rowFilter);
             }
         }
     }

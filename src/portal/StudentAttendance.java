@@ -29,13 +29,17 @@ public class StudentAttendance extends JFrame implements ActionListener{
                 tc.add(rs.getString("name"));
             }
 
-            rs = c.s.executeQuery("select * from subject");
+//            rs = c.s.executeQuery("select * from subject");
+//            while(rs.next()){
+//                sc.add(rs.getString("subject1"));
+//                sc.add(rs.getString("subject2"));
+//                sc.add(rs.getString("subject3"));
+//                sc.add(rs.getString("subject4"));
+//                sc.add(rs.getString("subject5"));
+//            }
+            rs = c.s.executeQuery("SELECT subject1 FROM subject UNION SELECT subject2 FROM subject UNION SELECT subject3 FROM subject UNION SELECT subject4 FROM subject UNION SELECT subject5 FROM subject");
             while(rs.next()){
-                sc.add(rs.getString("subject1"));
-                sc.add(rs.getString("subject2"));
-                sc.add(rs.getString("subject3"));
-                sc.add(rs.getString("subject4"));
-                sc.add(rs.getString("subject5"));
+                sc.add(rs.getString(1)); // Add subject to the choice component
             }
 
 
